@@ -1,25 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import InputBox from './components/InputBox'
+import styled from 'styled-components'
+import ResultBox from './components/ResultBox'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+          <TitleWrapper>
+      <h1 className="title">
+  Can My Dog Eat This?
+</h1>
+<InputBox />
+    </TitleWrapper>
+    <ResultBox />
     </div>
-  );
+
+
+  ); 
 }
+
+
+const TitleWrapper = styled.div`
+display: block;
+text-align: center;
+border: 2px solid blue;
+padding: 1rem;
+`
+
+
+
 
 export default App;
