@@ -34,7 +34,9 @@ const InputBox = ({ setAnswerText }) => {
           Submit
         </button>
       </form>
-      <div>{results}</div>
+      <ResultsWrapper>
+        <h2>{results}</h2>
+      </ResultsWrapper>
     </InputContainer>
   );
 };
@@ -47,6 +49,14 @@ const InputContainer = styled.div`
   flex-direction: column;
   margin: 2rem;
   padding: 1rem;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ResultsWrapper = styled.div`
+  border: 2px solid red;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 `;

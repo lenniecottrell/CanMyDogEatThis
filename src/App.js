@@ -1,7 +1,6 @@
 import "./App.css";
 import InputBox from "./components/InputBox";
 import styled from "styled-components";
-import ResultBox from "./components/ResultBox";
 import { useState } from "react";
 
 function App() {
@@ -10,7 +9,6 @@ function App() {
     <TitleWrapper>
       <h1 className="title">Can My Dog Eat This?</h1>
       <InputBox setAnswerText={setAnswerText} />
-      <ResultBox answerText={answerText} setAnserText={setAnswerText} />
     </TitleWrapper>
   );
 }
