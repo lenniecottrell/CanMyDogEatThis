@@ -2,18 +2,30 @@ import React from "react";
 import styled from "styled-components";
 import { useState, useEffect } from "react";
 
-const InputBox = ({ setAnswerText }) => {
+const InputBox = () => {
   const acceptableItems = ["blueberries", "lettuce", "carrots"];
   const offLimits = ["grapes", "chocolate", "onion"];
+  const [value, setValue] = useState("");
   let [results, setResults] = useState("");
-
-  const handleSubmit = (event) => {
-    setAnswerText(event.target.value);
-  };
+  const [submitted, setSubmitted] = useState(false);
 
   const handleInputChange = (event) => {
-    let newValue = event.target.value;
-    setResults(newValue);
+    setValue(event.target.value);
+    console.log(value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const test = event.target.value;
+    console.log(test);
+    if (acceptableItems.indexOf(test) > -1) {
+      setResults("dogs can have it");
+    } else if (offLimits.indexOf(test) > -1) {
+      setResults("not good for dogs");
+    } else {
+      setResults("there was an error");
+    }
+    setSubmitted(true);
   };
 
   // useEffect(() => {
@@ -21,29 +33,31 @@ const InputBox = ({ setAnswerText }) => {
   // }, [results]);
 
   return (
-    <InputContainer>
-      <form className="search-form">
+    <FormContainer>
+      <form className="search-form" onSubmit={handleSubmit}>
         <input
           type="text"
           className="search-bar"
           placeholder="Enter a food"
-          value={results}
+          value={value}
           onChange={handleInputChange}
         ></input>
-        <button className="search-button" onClick={() => handleSubmit()}>
+        <button className="submit-button" type="submit">
           Submit
         </button>
       </form>
-      <ResultsWrapper>
-        <h2>{results}</h2>
-      </ResultsWrapper>
-    </InputContainer>
+      {submitted ? (
+        <ResultsWrapper>
+          <h2>{results}</h2>
+        </ResultsWrapper>
+      ) : null}
+    </FormContainer>
   );
 };
 
 export default InputBox;
 
-const InputContainer = styled.div`
+const FormContainer = styled.div`
   border: 2px solid black;
   display: flex;
   flex-direction: column;

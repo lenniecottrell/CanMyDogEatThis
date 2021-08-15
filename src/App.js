@@ -4,11 +4,10 @@ import styled from "styled-components";
 import { useState } from "react";
 
 function App() {
-  const [answerText, setAnswerText] = useState("Results go here");
   return (
     <TitleWrapper>
       <h1 className="title">Can My Dog Eat This?</h1>
-      <InputBox setAnswerText={setAnswerText} />
+      <InputBox />
     </TitleWrapper>
   );
 }
