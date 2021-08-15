@@ -1,21 +1,20 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
-
-const ResultBox = () => {
+const ResultBox = ({ answerText }) => {
   return (
     <ResultsWrapper>
-      <h2>Results go here!</h2>
+      <h2>{answerText}</h2>
     </ResultsWrapper>
-  )
-}
+  );
+};
 
 const ResultsWrapper = styled.div`
-border: 2px solid red;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center
-`
+  border: 2px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
-export default ResultBox
+export default ResultBox;
