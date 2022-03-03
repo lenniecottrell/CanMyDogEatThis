@@ -5,15 +5,11 @@ import { useForm } from 'react-hook-form'
 const InputBox = () => {
   //state
   // const [value, setValue] = useState("");
-  // let [results, setResults] = useState("");
   // const [submitted, setSubmitted] = useState(false);
   
-  //lists of items
-  // const acceptableItems = ["blueberries", "lettuce", "carrots"];
-  // const offLimits = ["grapes", "chocolate", "onion"];
 
   //event handlers
-const {register, handleSubmit} = useForm();
+  const {register, handleSubmit} = useForm();
 
   //JSX
   return (
@@ -27,7 +23,7 @@ const {register, handleSubmit} = useForm();
           className="search-bar"
           placeholder="Enter a food"
         />
-        <input className="submit-button" type="submit" />
+        <input className="submit-button" type="submit" value="Woof!"/>
       </form>
   );
 };
